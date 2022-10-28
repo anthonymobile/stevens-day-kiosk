@@ -2,15 +2,14 @@
 from datetime import date
 from icalendar import Calendar, Event
 import requests
-from flask import Flask
+from flask import Flask, render_template
+from flask_bootstrap import Bootstrap5
+
 app = Flask(__name__)
+bootstrap = Bootstrap5(app)
 
 cal_feed_url = "http://stevenscoop.myschoolapp.com/podium/feed/iCal.aspx?z=EDb8RhfnZRh4jlgx9PDUaR03lkjDvMG7nV%2brhHrb7XbZgJsRtvBfjkV2it8mhyxcYCfWYJ5XB7xTMcJ2vTUr0Q%3d%3d"
 today = date.today()
-
-def render_page(today, day):
-    html = f"<h1>Today is {today}. It is Day {day} at Stevens.</h1> <P>This app fetches the Stevens school day calendar and display the current day number.</P>"
-    return html
 
 @app.route("/")
 def what_day_is_it():
@@ -33,4 +32,7 @@ def what_day_is_it():
                     print(component.decoded("dtstart"))
                     print(component.get("summary"))
                     day = component.get("summary")[-1]
-    return render_page(today, day)
+    # return render_page(today, day)
+
+    return render_template('index.html', today=today, day=day)
+

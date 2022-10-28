@@ -1,3 +1,4 @@
 flask
-zappa
+bootstrap-flask
 icalendar
+zappa

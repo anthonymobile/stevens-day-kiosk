@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <main role="main">
+        <div class="container-fluid banner">
+      
+            <!-- Main jumbotron -->
+            <div class="jumbotron bg-cover" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.65) 0%,rgba(255,255,255,0.95) 100%), url(/static/map-nyc-sm.jpg)">
+      
+            <div class="container ">
+
+              <h1 class="display-4">It's Day {{day}}.</h1>
+              <h2 class="display-4">Today is {{ today }}.</h1>
+              
+              <p class="lead">This app fetches the Stevens school day calendar and display the current day number.
+              </p>
+            </div>
+          </div>
+        </div> <!-- container -->
+        </main>
+
+
+
+
+{% endblock %}
+
+
+
+
+  
