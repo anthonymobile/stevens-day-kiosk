@@ -35,6 +35,8 @@ def what_day_is_it():
                     day = "LAB Day"
                 elif component.get("summary")[0:4] == "Day ":
                     day = f'Day {component.get("summary")[-1]}'
+                else:
+                    day = "School is not in session"
 
     return render_template('index.html', today=today.strftime('%B %-d, %Y'), day=day)
 
