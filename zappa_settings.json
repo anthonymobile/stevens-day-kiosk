@@ -5,6 +5,10 @@
         "profile_name": "starcitygroup_admin",
         "project_name": "stevens-day-kio",
         "runtime": "python3.9",
-        "s3_bucket": "zappa-stevens-day-kiosk"
+        "s3_bucket": "zappa-stevens-day-kiosk",
+        "aws_environment_variables": {
+            "TZ": "America/New_York"
+        }
+
     }
 }

@@ -4,6 +4,7 @@ from icalendar import Calendar, Event
 import requests
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap5
+import os
 
 app = Flask(__name__)
 bootstrap = Bootstrap5(app)
@@ -25,6 +26,8 @@ def what_day_is_it():
 
     #TODO: find today's date, any events with "Day " and then parse the integer from [-1]
     
+    day = '?'
+    
     for component in stevens_cal.walk():
         if component.name == "VEVENT":
             if component.decoded("dtstart") == today:
@@ -32,7 +35,6 @@ def what_day_is_it():
                     print(component.decoded("dtstart"))
                     print(component.get("summary"))
                     day = component.get("summary")[-1]
-    # return render_page(today, day)
 
     return render_template('index.html', today=today, day=day)
 
