@@ -31,10 +31,10 @@ def what_day_is_it():
     for component in stevens_cal.walk():
         if component.name == "VEVENT":
             if component.decoded("dtstart") == today:
-                if component.get("summary")[0:4] == "Day ":
-                    print(component.decoded("dtstart"))
-                    print(component.get("summary"))
-                    day = component.get("summary")[-1]
+                if component.get("summary")[0:7] == "LAB Day":
+                    day = "LAB Day"
+                elif component.get("summary")[0:4] == "Day ":
+                    day = f'Day {component.get("summary")[-1]}'
 
     return render_template('index.html', today=today, day=day)
 
