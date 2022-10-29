@@ -37,5 +37,5 @@ def what_day_is_it():
                 elif component.get("summary")[0:4] == "Day ":
                     day = f'Day {component.get("summary")[-1]}'
 
-    return render_template('index.html',now=now, today=today.strftime('%B %-d, %Y'), day=day)
+    return render_template('index.html',now=now, dow= today.strftime('%A'), today=today.strftime('%A %B %-d, %Y'), day=day)
 
