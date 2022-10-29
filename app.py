@@ -1,5 +1,5 @@
 # https://icalendar.readthedocs.io/en/latest/api.html
-from datetime import date
+from datetime import date, datetime
 from icalendar import Calendar, Event
 import requests
 from flask import Flask, render_template
@@ -11,6 +11,7 @@ bootstrap = Bootstrap5(app)
 
 cal_feed_url = "http://stevenscoop.myschoolapp.com/podium/feed/iCal.aspx?z=EDb8RhfnZRh4jlgx9PDUaR03lkjDvMG7nV%2brhHrb7XbZgJsRtvBfjkV2it8mhyxcYCfWYJ5XB7xTMcJ2vTUr0Q%3d%3d"
 today = date.today()
+now = datetime.now()
 
 @app.route("/")
 def what_day_is_it():
@@ -26,7 +27,7 @@ def what_day_is_it():
 
     #TODO: find today's date, any events with "Day " and then parse the integer from [-1]
     
-    day = '?'
+    day = 'not a school day'
     
     for component in stevens_cal.walk():
         if component.name == "VEVENT":
@@ -35,8 +36,6 @@ def what_day_is_it():
                     day = "LAB Day"
                 elif component.get("summary")[0:4] == "Day ":
                     day = f'Day {component.get("summary")[-1]}'
-                else:
-                    day = "School is not in session"
 
-    return render_template('index.html', today=today.strftime('%B %-d, %Y'), day=day)
+    return render_template('index.html',now=now, today=today.strftime('%B %-d, %Y'), day=day)
 
