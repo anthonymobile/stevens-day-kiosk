@@ -16,10 +16,19 @@
     </header>
   
     <main class="px-3">
-        <h2>Today is {{dow}}.</h2>
-        <h1>It's {{day}}</h1>
-        <h4>at Stevens Cooperative.</h4>
-        <!-- <p class="lead">This app does one thing and one thing only—fetch the school calendar from Stevens Cooperative and tell you which day of the learning cycle we're on. The rest is up to you.</p> -->
+      <div class="row">
+        <div class="mb-3">
+          <h2>Today is {{dow}}.</h2>
+          <h1>It's {{motd}}</h1>
+          <h4>at Stevens Cooperative.</h4>
+          <!-- <p class="lead">This app does one thing and one thing only—fetch the school calendar from Stevens Cooperative and tell you which day of the learning cycle we're on. The rest is up to you.</p> -->
+        </div>
+        </div>
+      <div class="row">
+        <div class="mt-3">
+          <h4 class="text-secondary">Tomorrow ({{tdow}}) is {{motw}}.</h4>
+        </div>
+      </div>
 
     </main>
   
