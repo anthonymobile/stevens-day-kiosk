@@ -6,7 +6,9 @@ from flask import Flask, render_template
 from flask_bootstrap import Bootstrap5
 import os
 
-app = Flask(__name__)
+app = Flask(__name__,
+            static_folder="public", 
+            static_url_path="/static")
 bootstrap = Bootstrap5(app)
 
 cal_feed_url = "http://stevenscoop.myschoolapp.com/podium/feed/iCal.aspx?z=EDb8RhfnZRh4jlgx9PDUaR03lkjDvMG7nV%2brhHrb7XbZgJsRtvBfjkV2it8mhyxcYCfWYJ5XB7xTMcJ2vTUr0Q%3d%3d"
