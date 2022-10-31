@@ -2,7 +2,7 @@
 from datetime import date, datetime, timedelta
 from icalendar import Calendar, Event
 import requests
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect
 from flask_bootstrap import Bootstrap5
 import os
 
@@ -17,7 +17,11 @@ today = date.today()
 tomorrow = date.today() + timedelta(days=1)
 now = datetime.now()
 
-@app.route("/")
+@app.route('/')
+def hello():
+    return redirect("https://www.whatdayatschool.com/stevens", code=302)
+
+@app.route("/stevens")
 def what_day_is_it():
     
     # fetch the cal feed

@@ -8,7 +8,9 @@
         "s3_bucket": "zappa-stevens-day-kiosk",
         "aws_environment_variables": {
             "TZ": "America/New_York"
-        }
+        },
+        "certificate_arn": "arn:aws:acm:us-east-1:703569250339:certificate/cd2ac163-9063-45cb-8b4f-f5dd8e3773fe",
+        "domain": "www.whatdayatschool.com"
 
     }
 }
